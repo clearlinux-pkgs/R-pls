@@ -1,2 +1,6 @@
 2.7.0
+R-RUnit
+R-assertthat
+R-cli
 R-sm
+R-withr

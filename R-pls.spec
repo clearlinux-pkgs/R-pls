@@ -4,14 +4,21 @@
 #
 Name     : R-pls
 Version  : 2.7.0
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/pls_2.7-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pls_2.7-0.tar.gz
 Summary  : Partial Least Squares and Principal Component Regression
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-sm
+Requires: R-RUnit
+Requires: R-assertthat
+Requires: R-cli
+Requires: R-withr
+BuildRequires : R-RUnit
+BuildRequires : R-assertthat
+BuildRequires : R-cli
 BuildRequires : R-sm
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
@@ -26,11 +33,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534863223
+export SOURCE_DATE_EPOCH=1552855096
 
 %install
+export SOURCE_DATE_EPOCH=1552855096
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1534863223
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -65,8 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library pls|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  pls || :
 
 
 %files
@@ -100,3 +106,36 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/pls/help/pls.rdx
 /usr/lib64/R/library/pls/html/00Index.html
 /usr/lib64/R/library/pls/html/R.css
+/usr/lib64/R/library/pls/tests/RUnit/common/create_refmodels.R
+/usr/lib64/R/library/pls/tests/RUnit/common/ref_multiresp.RData
+/usr/lib64/R/library/pls/tests/RUnit/common/ref_singresp.RData
+/usr/lib64/R/library/pls/tests/RUnit/common/runit.CV.R
+/usr/lib64/R/library/pls/tests/RUnit/common/runit.algorithms.R
+/usr/lib64/R/library/pls/tests/RUnit/common/runit.jackknife.R
+/usr/lib64/R/library/pls/tests/RUnit/common/runit.mvrVal.R
+/usr/lib64/R/library/pls/tests/RUnit/common/runit.options.R
+/usr/lib64/R/library/pls/tests/RUnit/common/runit.predict.R
+/usr/lib64/R/library/pls/tests/RUnit/common/utils.R
+/usr/lib64/R/library/pls/tests/RUnit/import/runit.fit.R
+/usr/lib64/R/library/pls/tests/RUnit/import/runit.options.R
+/usr/lib64/R/library/pls/tests/RUnit/library/runit.CV.R
+/usr/lib64/R/library/pls/tests/RUnit/library/runit.mvr_wrappers.R
+/usr/lib64/R/library/pls/tests/test_import.R
+/usr/lib64/R/library/pls/tests/test_library.R
+/usr/lib64/R/library/pls/tests/testthat.R
+/usr/lib64/R/library/pls/tests/testthat/pred.cppls.rds
+/usr/lib64/R/library/pls/tests/testthat/pred.pcr.rds
+/usr/lib64/R/library/pls/tests/testthat/pred.pls.rds
+/usr/lib64/R/library/pls/tests/testthat/pred.pls.widekernel.rds
+/usr/lib64/R/library/pls/tests/testthat/pred_nocenter.cppls.rds
+/usr/lib64/R/library/pls/tests/testthat/pred_nocenter.oscorepls.rds
+/usr/lib64/R/library/pls/tests/testthat/pred_nocenter.pcr.rds
+/usr/lib64/R/library/pls/tests/testthat/pred_nocenter.pls.rds
+/usr/lib64/R/library/pls/tests/testthat/pred_nocenter.pls.widekernel.rds
+/usr/lib64/R/library/pls/tests/testthat/test_basic_pls.R
+/usr/lib64/R/library/pls/tests/testthat/yarn.cppls.rds
+/usr/lib64/R/library/pls/tests/testthat/yarn.oscorespls.rds
+/usr/lib64/R/library/pls/tests/testthat/yarn.pcr.rds
+/usr/lib64/R/library/pls/tests/testthat/yarn.pls.rds
+/usr/lib64/R/library/pls/tests/testthat/yarn.pls.widekernel.rds
+/usr/lib64/R/library/pls/tests/testthat/yarn.simpls.rds
