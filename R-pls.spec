@@ -4,16 +4,17 @@
 #
 Name     : R-pls
 Version  : 2.7.1
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/pls_2.7-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pls_2.7-1.tar.gz
 Summary  : Partial Least Squares and Principal Component Regression
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-RUnit
-Requires: R-sm
 BuildRequires : R-RUnit
+BuildRequires : R-assertthat
+BuildRequires : R-cli
 BuildRequires : R-sm
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
@@ -28,10 +29,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1553440165
+export SOURCE_DATE_EPOCH=1561319770
 
 %install
-export SOURCE_DATE_EPOCH=1553440165
+export SOURCE_DATE_EPOCH=1561319770
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -61,14 +62,6 @@ echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library pls
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  pls || :
-
 
 %files
 %defattr(-,root,root,-)
