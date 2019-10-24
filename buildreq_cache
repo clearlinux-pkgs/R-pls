@@ -1,6 +1,7 @@
-2.7.1
+2.7.2
 R-RUnit
 R-assertthat
 R-cli
 R-sm
 R-withr
+util-linux

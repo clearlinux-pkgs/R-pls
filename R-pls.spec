@@ -4,13 +4,14 @@
 #
 Name     : R-pls
 Version  : 2.7.2
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/pls_2.7-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pls_2.7-2.tar.gz
 Summary  : Partial Least Squares and Principal Component Regression
 Group    : Development/Tools
 License  : GPL-2.0
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 Partial Least Squares Regression (PLSR), Principal Component
@@ -24,10 +25,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569990487
+export SOURCE_DATE_EPOCH=1571875484
 
 %install
-export SOURCE_DATE_EPOCH=1569990487
+export SOURCE_DATE_EPOCH=1571875484
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
