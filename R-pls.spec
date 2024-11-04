@@ -7,7 +7,7 @@
 #
 Name     : R-pls
 Version  : 2.8.5
-Release  : 59
+Release  : 60
 URL      : https://cran.r-project.org/src/contrib/pls_2.8-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pls_2.8-5.tar.gz
 Summary  : Partial Least Squares and Principal Component Regression
